@@ -1,0 +1,3 @@
+[submodule "ql"]
+	path = ql
+	url = git@github.com:github/codeql.git

@@ -4,9 +4,9 @@
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HikaruEgashira/CodeQL-Community-Packs)
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/hikae/CodeQL-Community-Packs/publish.yml?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs/actions/workflows/publish.yml?query=branch%3Amain)
-[![GitHub Issues](https://img.shields.io/github/issues/hikae/CodeQL-Community-Packs?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/hikae/CodeQL-Community-Packs?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/HikaruEgashira/CodeQL-Community-Packs/publish.yml?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs/actions/workflows/publish.yml?query=branch%3Amain)
+[![GitHub Issues](https://img.shields.io/github/issues/HikaruEgashira/CodeQL-Community-Packs?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/HikaruEgashira/CodeQL-Community-Packs?style=for-the-badge)](https://github.com/HikaruEgashira/CodeQL-Community-Packs)
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
 </div>

@@ -20,3 +20,7 @@ gh codeql database analyze dist/rails-tutorial --format=sarifv2.1.0 --output=tes
 gh codeql database analyze dist/rails-tutorial --format=dot --output=dist --download --verbose ql/ruby/ql/test/library-tests/modules/ancestors.ql
 dot -Tpdf dist/rb/test/ancestors.dot -o test/rails-tutorial/analysis/ancestors.pdf
 ```
+
+## Next Actions
+
+- [CodeQL workshop for Ruby](https://github.com/githubuniverseworkshops/codeql/tree/main/workshop-2022)

@@ -11,8 +11,7 @@ class CallOrCallable extends Expr {
 
 query predicate nodes(CallOrCallable node, string key, string value) {
   key = "semmle.label" and
-  value =
-    node.getFile().getBaseName() + " > " + node.getEnclosingCallable() + " > " + node.toString()
+  value = node.getFile().getBaseName() + " > " + node.toString()
   or
   key = "semmle.order" and
   value =
@@ -38,7 +37,7 @@ query predicate edges(CallOrCallable source, CallOrCallable target, string key, 
   value =
     any(int i |
       target =
-        rank[i](Callable t, Location l |
+        rank[i](CallOrCallable t, Location l |
           t = source.(Call).getATarget() and
           l = t.getLocation()
         |

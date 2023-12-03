@@ -1,0 +1,6386 @@
+{
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "CodeQL",
+        "organization" : "GitHub",
+        "semanticVersion" : "2.15.3",
+        "notifications" : [ {
+          "id" : "rb/diagnostics/extraction-errors",
+          "name" : "rb/diagnostics/extraction-errors",
+          "shortDescription" : {
+            "text" : "Extraction errors"
+          },
+          "fullDescription" : {
+            "text" : "List all extraction errors for files in the source code directory."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "description" : "List all extraction errors for files in the source code directory.",
+            "id" : "rb/diagnostics/extraction-errors",
+            "kind" : "diagnostic",
+            "name" : "Extraction errors"
+          }
+        }, {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "name" : "rb/diagnostics/successfully-extracted-files",
+          "shortDescription" : {
+            "text" : "Successfully extracted files"
+          },
+          "fullDescription" : {
+            "text" : "Lists all files in the source code directory that were extracted without encountering an error in the file."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "successfully-extracted-files" ],
+            "description" : "Lists all files in the source code directory that were extracted\n   without encountering an error in the file.",
+            "id" : "rb/diagnostics/successfully-extracted-files",
+            "kind" : "diagnostic",
+            "name" : "Successfully extracted files"
+          }
+        }, {
+          "id" : "rb/baseline/expected-extracted-files",
+          "name" : "rb/baseline/expected-extracted-files",
+          "shortDescription" : {
+            "text" : "Expected extracted files"
+          },
+          "fullDescription" : {
+            "text" : "Files appearing in the source archive that are expected to be extracted."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "expected-extracted-files", "telemetry" ]
+          }
+        }, {
+          "id" : "js/baseline/expected-extracted-files",
+          "name" : "js/baseline/expected-extracted-files",
+          "shortDescription" : {
+            "text" : "Expected extracted files"
+          },
+          "fullDescription" : {
+            "text" : "Files appearing in the source archive that are expected to be extracted."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "expected-extracted-files", "telemetry" ]
+          }
+        } ],
+        "rules" : [ {
+          "id" : "rb/code-injection",
+          "name" : "rb/code-injection",
+          "shortDescription" : {
+            "text" : "Code injection"
+          },
+          "fullDescription" : {
+            "text" : "Interpreting unsanitized user input as code allows a malicious user to perform arbitrary code execution."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-094", "external/cwe/cwe-095", "external/cwe/cwe-116" ],
+            "description" : "Interpreting unsanitized user input as code allows a malicious user to perform arbitrary\n              code execution.",
+            "id" : "rb/code-injection",
+            "kind" : "path-problem",
+            "name" : "Code injection",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.3",
+            "sub-severity" : "high"
+          }
+        }, {
+          "id" : "rb/stack-trace-exposure",
+          "name" : "rb/stack-trace-exposure",
+          "shortDescription" : {
+            "text" : "Information exposure through an exception"
+          },
+          "fullDescription" : {
+            "text" : "Leaking information about an exception, such as messages and stack traces, to an external user can expose implementation details that are useful to an attacker for developing a subsequent exploit."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-209", "external/cwe/cwe-497" ],
+            "description" : "Leaking information about an exception, such as messages and stack traces, to an\n              external user can expose implementation details that are useful to an attacker for\n              developing a subsequent exploit.",
+            "id" : "rb/stack-trace-exposure",
+            "kind" : "path-problem",
+            "name" : "Information exposure through an exception",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "5.4"
+          }
+        }, {
+          "id" : "rb/url-redirection",
+          "name" : "rb/url-redirection",
+          "shortDescription" : {
+            "text" : "URL redirection from remote source"
+          },
+          "fullDescription" : {
+            "text" : "URL redirection based on unvalidated user input may cause redirection to malicious web sites."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-601" ],
+            "description" : "URL redirection based on unvalidated user input\n              may cause redirection to malicious web sites.",
+            "id" : "rb/url-redirection",
+            "kind" : "path-problem",
+            "name" : "URL redirection from remote source",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.1",
+            "sub-severity" : "low"
+          }
+        }, {
+          "id" : "rb/weak-cryptographic-algorithm",
+          "name" : "rb/weak-cryptographic-algorithm",
+          "shortDescription" : {
+            "text" : "Use of a broken or weak cryptographic algorithm"
+          },
+          "fullDescription" : {
+            "text" : "Using broken or weak cryptographic algorithms can compromise security."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-327" ],
+            "description" : "Using broken or weak cryptographic algorithms can compromise security.",
+            "id" : "rb/weak-cryptographic-algorithm",
+            "kind" : "problem",
+            "name" : "Use of a broken or weak cryptographic algorithm",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/request-forgery",
+          "name" : "rb/request-forgery",
+          "shortDescription" : {
+            "text" : "Server-side request forgery"
+          },
+          "fullDescription" : {
+            "text" : "Making a network request with user-controlled data in the URL allows for request forgery attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-918" ],
+            "description" : "Making a network request with user-controlled data in the URL allows for request forgery attacks.",
+            "id" : "rb/request-forgery",
+            "kind" : "path-problem",
+            "name" : "Server-side request forgery",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.1"
+          }
+        }, {
+          "id" : "rb/weak-cookie-configuration",
+          "name" : "rb/weak-cookie-configuration",
+          "shortDescription" : {
+            "text" : "Weak cookie configuration"
+          },
+          "fullDescription" : {
+            "text" : "Misconfiguring how cookies are encrypted or sent can expose a user to various attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "external/cwe/cwe-732", "external/cwe/cwe-1275", "security" ],
+            "description" : "Misconfiguring how cookies are encrypted or sent can expose a user to various attacks.",
+            "id" : "rb/weak-cookie-configuration",
+            "kind" : "problem",
+            "name" : "Weak cookie configuration",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/sensitive-get-query",
+          "name" : "rb/sensitive-get-query",
+          "shortDescription" : {
+            "text" : "Sensitive data read from GET request"
+          },
+          "fullDescription" : {
+            "text" : "Placing sensitive data in a GET request increases the risk of the data being exposed to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-598" ],
+            "description" : "Placing sensitive data in a GET request increases the risk of\n              the data being exposed to an attacker.",
+            "id" : "rb/sensitive-get-query",
+            "kind" : "problem",
+            "name" : "Sensitive data read from GET request",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "6.5"
+          }
+        }, {
+          "id" : "rb/sql-injection",
+          "name" : "rb/sql-injection",
+          "shortDescription" : {
+            "text" : "SQL query built from user-controlled sources"
+          },
+          "fullDescription" : {
+            "text" : "Building a SQL query from user-controlled sources is vulnerable to insertion of malicious SQL code by the user."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-089" ],
+            "description" : "Building a SQL query from user-controlled sources is vulnerable to insertion of\n              malicious SQL code by the user.",
+            "id" : "rb/sql-injection",
+            "kind" : "path-problem",
+            "name" : "SQL query built from user-controlled sources",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "rb/incomplete-hostname-regexp",
+          "name" : "rb/incomplete-hostname-regexp",
+          "shortDescription" : {
+            "text" : "Incomplete regular expression for hostnames"
+          },
+          "fullDescription" : {
+            "text" : "Matching a URL or hostname against a regular expression that contains an unescaped dot as part of the hostname might match more hostnames than expected."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020" ],
+            "description" : "Matching a URL or hostname against a regular expression that contains an unescaped dot as part of the hostname might match more hostnames than expected.",
+            "id" : "rb/incomplete-hostname-regexp",
+            "kind" : "problem",
+            "name" : "Incomplete regular expression for hostnames",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/regex/badly-anchored-regexp",
+          "name" : "rb/regex/badly-anchored-regexp",
+          "shortDescription" : {
+            "text" : "Badly anchored regular expression"
+          },
+          "fullDescription" : {
+            "text" : "Regular expressions anchored using `^` or `$` are vulnerable to bypassing."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020" ],
+            "description" : "Regular expressions anchored using `^` or `$` are vulnerable to bypassing.",
+            "id" : "rb/regex/badly-anchored-regexp",
+            "kind" : "path-problem",
+            "name" : "Badly anchored regular expression",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/incomplete-url-substring-sanitization",
+          "name" : "rb/incomplete-url-substring-sanitization",
+          "shortDescription" : {
+            "text" : "Incomplete URL substring sanitization"
+          },
+          "fullDescription" : {
+            "text" : "Security checks on the substrings of an unparsed URL are often vulnerable to bypassing."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020" ],
+            "description" : "Security checks on the substrings of an unparsed URL are often vulnerable to bypassing.",
+            "id" : "rb/incomplete-url-substring-sanitization",
+            "kind" : "problem",
+            "name" : "Incomplete URL substring sanitization",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/overly-large-range",
+          "name" : "rb/overly-large-range",
+          "shortDescription" : {
+            "text" : "Overly permissive regular expression range"
+          },
+          "fullDescription" : {
+            "text" : "Overly permissive regular expression ranges match a wider range of characters than intended. This may allow an attacker to bypass a filter or sanitizer."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020" ],
+            "description" : "Overly permissive regular expression ranges match a wider range of characters than intended.\n              This may allow an attacker to bypass a filter or sanitizer.",
+            "id" : "rb/overly-large-range",
+            "kind" : "problem",
+            "name" : "Overly permissive regular expression range",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "5.0"
+          }
+        }, {
+          "id" : "rb/incomplete-sanitization",
+          "name" : "rb/incomplete-sanitization",
+          "shortDescription" : {
+            "text" : "Incomplete string escaping or encoding"
+          },
+          "fullDescription" : {
+            "text" : "A string transformer that does not replace or escape all occurrences of a meta-character may be ineffective."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020", "external/cwe/cwe-080", "external/cwe/cwe-116" ],
+            "description" : "A string transformer that does not replace or escape all occurrences of a\n              meta-character may be ineffective.",
+            "id" : "rb/incomplete-sanitization",
+            "kind" : "problem",
+            "name" : "Incomplete string escaping or encoding",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/bad-tag-filter",
+          "name" : "rb/bad-tag-filter",
+          "shortDescription" : {
+            "text" : "Bad HTML filtering regexp"
+          },
+          "fullDescription" : {
+            "text" : "Matching HTML tags using regular expressions is hard to do right, and can easily lead to security issues."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-116", "external/cwe/cwe-020", "external/cwe/cwe-185", "external/cwe/cwe-186" ],
+            "description" : "Matching HTML tags using regular expressions is hard to do right, and can easily lead to security issues.",
+            "id" : "rb/bad-tag-filter",
+            "kind" : "problem",
+            "name" : "Bad HTML filtering regexp",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/incomplete-multi-character-sanitization",
+          "name" : "rb/incomplete-multi-character-sanitization",
+          "shortDescription" : {
+            "text" : "Incomplete multi-character sanitization"
+          },
+          "fullDescription" : {
+            "text" : "A sanitizer that removes a sequence of characters may reintroduce the dangerous sequence."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-020", "external/cwe/cwe-080", "external/cwe/cwe-116" ],
+            "description" : "A sanitizer that removes a sequence of characters may reintroduce the dangerous sequence.",
+            "id" : "rb/incomplete-multi-character-sanitization",
+            "kind" : "problem",
+            "name" : "Incomplete multi-character sanitization",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.8"
+          }
+        }, {
+          "id" : "rb/redos",
+          "name" : "rb/redos",
+          "shortDescription" : {
+            "text" : "Inefficient regular expression"
+          },
+          "fullDescription" : {
+            "text" : "A regular expression that requires exponential time to match certain inputs can be a performance bottleneck, and may be vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-1333", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "description" : "A regular expression that requires exponential time to match certain inputs\n              can be a performance bottleneck, and may be vulnerable to denial-of-service\n              attacks.",
+            "id" : "rb/redos",
+            "kind" : "problem",
+            "name" : "Inefficient regular expression",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/regexp-injection",
+          "name" : "rb/regexp-injection",
+          "shortDescription" : {
+            "text" : "Regular expression injection"
+          },
+          "fullDescription" : {
+            "text" : "User input should not be used in regular expressions without first being escaped. Otherwise, a malicious user may be able to inject an expression that could require exponential time on certain inputs."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-1333", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "description" : "User input should not be used in regular expressions without\n              first being escaped. Otherwise, a malicious user may be able to\n              inject an expression that could require exponential time on\n              certain inputs.",
+            "id" : "rb/regexp-injection",
+            "kind" : "path-problem",
+            "name" : "Regular expression injection",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/polynomial-redos",
+          "name" : "rb/polynomial-redos",
+          "shortDescription" : {
+            "text" : "Polynomial regular expression used on uncontrolled data"
+          },
+          "fullDescription" : {
+            "text" : "A regular expression that can require polynomial time to match may be vulnerable to denial-of-service attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-1333", "external/cwe/cwe-730", "external/cwe/cwe-400" ],
+            "description" : "A regular expression that can require polynomial time\n              to match may be vulnerable to denial-of-service attacks.",
+            "id" : "rb/polynomial-redos",
+            "kind" : "path-problem",
+            "name" : "Polynomial regular expression used on uncontrolled data",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/clear-text-storage-sensitive-data",
+          "name" : "rb/clear-text-storage-sensitive-data",
+          "shortDescription" : {
+            "text" : "Clear-text storage of sensitive information"
+          },
+          "fullDescription" : {
+            "text" : "Storing sensitive information without encryption or hashing can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-312", "external/cwe/cwe-359", "external/cwe/cwe-532" ],
+            "description" : "Storing sensitive information without encryption or hashing can\n              expose it to an attacker.",
+            "id" : "rb/clear-text-storage-sensitive-data",
+            "kind" : "path-problem",
+            "name" : "Clear-text storage of sensitive information",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/clear-text-logging-sensitive-data",
+          "name" : "rb/clear-text-logging-sensitive-data",
+          "shortDescription" : {
+            "text" : "Clear-text logging of sensitive information"
+          },
+          "fullDescription" : {
+            "text" : "Logging sensitive information without encryption or hashing can expose it to an attacker."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-312", "external/cwe/cwe-359", "external/cwe/cwe-532" ],
+            "description" : "Logging sensitive information without encryption or hashing can\n              expose it to an attacker.",
+            "id" : "rb/clear-text-logging-sensitive-data",
+            "kind" : "path-problem",
+            "name" : "Clear-text logging of sensitive information",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/tainted-format-string",
+          "name" : "rb/tainted-format-string",
+          "shortDescription" : {
+            "text" : "Use of externally-controlled format string"
+          },
+          "fullDescription" : {
+            "text" : "Using external input in format strings can lead to garbled output."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-134" ],
+            "description" : "Using external input in format strings can lead to garbled output.",
+            "id" : "rb/tainted-format-string",
+            "kind" : "path-problem",
+            "name" : "Use of externally-controlled format string",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "7.3"
+          }
+        }, {
+          "id" : "rb/csrf-protection-disabled",
+          "name" : "rb/csrf-protection-disabled",
+          "shortDescription" : {
+            "text" : "CSRF protection weakened or disabled"
+          },
+          "fullDescription" : {
+            "text" : "Disabling or weakening CSRF protection may make the application vulnerable to a Cross-Site Request Forgery (CSRF) attack."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-352" ],
+            "description" : "Disabling or weakening CSRF protection may make the application\n              vulnerable to a Cross-Site Request Forgery (CSRF) attack.",
+            "id" : "rb/csrf-protection-disabled",
+            "kind" : "problem",
+            "name" : "CSRF protection weakened or disabled",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "8.8"
+          }
+        }, {
+          "id" : "rb/insecure-dependency",
+          "name" : "rb/insecure-dependency",
+          "shortDescription" : {
+            "text" : "Dependency download using unencrypted communication channel"
+          },
+          "fullDescription" : {
+            "text" : "Using unencrypted protocols to fetch dependencies can leave an application open to man-in-the-middle attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-300", "external/cwe/cwe-319", "external/cwe/cwe-494", "external/cwe/cwe-829" ],
+            "description" : "Using unencrypted protocols to fetch dependencies can leave an application\n              open to man-in-the-middle attacks.",
+            "id" : "rb/insecure-dependency",
+            "kind" : "problem",
+            "name" : "Dependency download using unencrypted communication channel",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "rb/unsafe-deserialization",
+          "name" : "rb/unsafe-deserialization",
+          "shortDescription" : {
+            "text" : "Deserialization of user-controlled data"
+          },
+          "fullDescription" : {
+            "text" : "Deserializing user-controlled data may allow attackers to execute arbitrary code."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-502" ],
+            "description" : "Deserializing user-controlled data may allow attackers to\n              execute arbitrary code.",
+            "id" : "rb/unsafe-deserialization",
+            "kind" : "path-problem",
+            "name" : "Deserialization of user-controlled data",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "rb/path-injection",
+          "name" : "rb/path-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled data used in path expression"
+          },
+          "fullDescription" : {
+            "text" : "Accessing paths influenced by users can allow an attacker to access unexpected resources."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-022", "external/cwe/cwe-023", "external/cwe/cwe-036", "external/cwe/cwe-073", "external/cwe/cwe-099" ],
+            "description" : "Accessing paths influenced by users can allow an attacker to access\n              unexpected resources.",
+            "id" : "rb/path-injection",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled data used in path expression",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "7.5"
+          }
+        }, {
+          "id" : "rb/xxe",
+          "name" : "rb/xxe",
+          "shortDescription" : {
+            "text" : "XML external entity expansion"
+          },
+          "fullDescription" : {
+            "text" : "Parsing user input as an XML document with external entity expansion is vulnerable to XXE attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-611", "external/cwe/cwe-776", "external/cwe/cwe-827" ],
+            "description" : "Parsing user input as an XML document with external\n              entity expansion is vulnerable to XXE attacks.",
+            "id" : "rb/xxe",
+            "kind" : "path-problem",
+            "name" : "XML external entity expansion",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.1"
+          }
+        }, {
+          "id" : "rb/command-line-injection",
+          "name" : "rb/command-line-injection",
+          "shortDescription" : {
+            "text" : "Uncontrolled command line"
+          },
+          "fullDescription" : {
+            "text" : "Using externally controlled strings in a command line may allow a malicious user to change the meaning of the command."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088" ],
+            "description" : "Using externally controlled strings in a command line may allow a malicious\n              user to change the meaning of the command.",
+            "id" : "rb/command-line-injection",
+            "kind" : "path-problem",
+            "name" : "Uncontrolled command line",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "rb/kernel-open",
+          "name" : "rb/kernel-open",
+          "shortDescription" : {
+            "text" : "Use of `Kernel.open`, `IO.read` or similar sinks with user-controlled input"
+          },
+          "fullDescription" : {
+            "text" : "Using `Kernel.open`, `IO.read`, `IO.write`, `IO.binread`, `IO.binwrite`, `IO.foreach`, `IO.readlines`, or `URI.open` may allow a malicious user to execute arbitrary system commands."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088", "external/cwe/cwe-073" ],
+            "description" : "Using `Kernel.open`, `IO.read`, `IO.write`, `IO.binread`, `IO.binwrite`,\n              `IO.foreach`, `IO.readlines`, or `URI.open` may allow a malicious\n              user to execute arbitrary system commands.",
+            "id" : "rb/kernel-open",
+            "kind" : "path-problem",
+            "name" : "Use of `Kernel.open`, `IO.read` or similar sinks with user-controlled input",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "9.8"
+          }
+        }, {
+          "id" : "rb/non-constant-kernel-open",
+          "name" : "rb/non-constant-kernel-open",
+          "shortDescription" : {
+            "text" : "Use of `Kernel.open` or `IO.read` or similar sinks with a non-constant value"
+          },
+          "fullDescription" : {
+            "text" : "Using `Kernel.open`, `IO.read`, `IO.write`, `IO.binread`, `IO.binwrite`, `IO.foreach`, `IO.readlines`, or `URI.open` may allow a malicious user to execute arbitrary system commands."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "warning"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088", "external/cwe/cwe-073" ],
+            "description" : "Using `Kernel.open`, `IO.read`, `IO.write`, `IO.binread`, `IO.binwrite`,\n              `IO.foreach`, `IO.readlines`, or `URI.open` may allow a malicious\n              user to execute arbitrary system commands.",
+            "id" : "rb/non-constant-kernel-open",
+            "kind" : "problem",
+            "name" : "Use of `Kernel.open` or `IO.read` or similar sinks with a non-constant value",
+            "precision" : "high",
+            "problem.severity" : "warning",
+            "security-severity" : "6.5"
+          }
+        }, {
+          "id" : "rb/shell-command-constructed-from-input",
+          "name" : "rb/shell-command-constructed-from-input",
+          "shortDescription" : {
+            "text" : "Unsafe shell command constructed from library input"
+          },
+          "fullDescription" : {
+            "text" : "Using externally controlled strings in a command line may allow a malicious user to change the meaning of the command."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "correctness", "security", "external/cwe/cwe-078", "external/cwe/cwe-088", "external/cwe/cwe-073" ],
+            "description" : "Using externally controlled strings in a command line may allow a malicious\n              user to change the meaning of the command.",
+            "id" : "rb/shell-command-constructed-from-input",
+            "kind" : "path-problem",
+            "name" : "Unsafe shell command constructed from library input",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.3"
+          }
+        }, {
+          "id" : "rb/insecure-download",
+          "name" : "rb/insecure-download",
+          "shortDescription" : {
+            "text" : "Download of sensitive file through insecure connection"
+          },
+          "fullDescription" : {
+            "text" : "Downloading executables and other sensitive files over an insecure connection may allow man-in-the-middle attacks."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-829" ],
+            "description" : "Downloading executables and other sensitive files over an insecure connection\n              may allow man-in-the-middle attacks.",
+            "id" : "rb/insecure-download",
+            "kind" : "path-problem",
+            "name" : "Download of sensitive file through insecure connection",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "8.1"
+          }
+        }, {
+          "id" : "rb/reflected-xss",
+          "name" : "rb/reflected-xss",
+          "shortDescription" : {
+            "text" : "Reflected server-side cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Writing user input directly to a web page allows for a cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "description" : "Writing user input directly to a web page\n              allows for a cross-site scripting vulnerability.",
+            "id" : "rb/reflected-xss",
+            "kind" : "path-problem",
+            "name" : "Reflected server-side cross-site scripting",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.1",
+            "sub-severity" : "high"
+          }
+        }, {
+          "id" : "rb/html-constructed-from-input",
+          "name" : "rb/html-constructed-from-input",
+          "shortDescription" : {
+            "text" : "Unsafe HTML constructed from library input"
+          },
+          "fullDescription" : {
+            "text" : "Using externally controlled strings to construct HTML might allow a malicious user to perform a cross-site scripting attack."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "description" : "Using externally controlled strings to construct HTML might allow a malicious\n              user to perform a cross-site scripting attack.",
+            "id" : "rb/html-constructed-from-input",
+            "kind" : "path-problem",
+            "name" : "Unsafe HTML constructed from library input",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.1"
+          }
+        }, {
+          "id" : "rb/stored-xss",
+          "name" : "rb/stored-xss",
+          "shortDescription" : {
+            "text" : "Stored cross-site scripting"
+          },
+          "fullDescription" : {
+            "text" : "Using uncontrolled stored values in HTML allows for a stored cross-site scripting vulnerability."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true,
+            "level" : "error"
+          },
+          "properties" : {
+            "tags" : [ "security", "external/cwe/cwe-079", "external/cwe/cwe-116" ],
+            "description" : "Using uncontrolled stored values in HTML allows for\n              a stored cross-site scripting vulnerability.",
+            "id" : "rb/stored-xss",
+            "kind" : "path-problem",
+            "name" : "Stored cross-site scripting",
+            "precision" : "high",
+            "problem.severity" : "error",
+            "security-severity" : "6.1"
+          }
+        }, {
+          "id" : "rb/summary/number-of-files-extracted-with-errors",
+          "name" : "rb/summary/number-of-files-extracted-with-errors",
+          "shortDescription" : {
+            "text" : "Total number of Ruby files that were extracted with errors"
+          },
+          "fullDescription" : {
+            "text" : "The total number of Ruby code files that we extracted, but where at least one extraction error occurred in the process."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "summary" ],
+            "description" : "The total number of Ruby code files that we extracted, but where\n  at least one extraction error occurred in the process.",
+            "id" : "rb/summary/number-of-files-extracted-with-errors",
+            "kind" : "metric",
+            "name" : "Total number of Ruby files that were extracted with errors"
+          }
+        }, {
+          "id" : "rb/summary/lines-of-code",
+          "name" : "rb/summary/lines-of-code",
+          "shortDescription" : {
+            "text" : "Total lines of Ruby code in the database"
+          },
+          "fullDescription" : {
+            "text" : "The total number of lines of Ruby code from the source code directory, including external libraries and auto-generated files. This is a useful metric of the size of a database. This query counts the lines of code, excluding whitespace or comments."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "summary", "lines-of-code" ],
+            "description" : "The total number of lines of Ruby code from the source code\n   directory, including external libraries and auto-generated files. This is a\n   useful metric of the size of a database. This query counts the lines of\n   code, excluding whitespace or comments.",
+            "id" : "rb/summary/lines-of-code",
+            "kind" : "metric",
+            "name" : "Total lines of Ruby code in the database"
+          }
+        }, {
+          "id" : "rb/summary/number-of-successfully-extracted-files",
+          "name" : "rb/summary/number-of-successfully-extracted-files",
+          "shortDescription" : {
+            "text" : "Total number of Ruby files that were extracted without error"
+          },
+          "fullDescription" : {
+            "text" : "The total number of Ruby code files that we extracted without encountering any extraction errors"
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "summary" ],
+            "description" : "The total number of Ruby code files that we extracted without\n   encountering any extraction errors",
+            "id" : "rb/summary/number-of-successfully-extracted-files",
+            "kind" : "metric",
+            "name" : "Total number of Ruby files that were extracted without error"
+          }
+        }, {
+          "id" : "rb/summary/lines-of-user-code",
+          "name" : "rb/summary/lines-of-user-code",
+          "shortDescription" : {
+            "text" : "Total lines of user written Ruby code in the database"
+          },
+          "fullDescription" : {
+            "text" : "The total number of lines of Ruby code from the source code directory, excluding external library and auto-generated files. This query counts the lines of code, excluding whitespace or comments."
+          },
+          "defaultConfiguration" : {
+            "enabled" : true
+          },
+          "properties" : {
+            "tags" : [ "summary" ],
+            "description" : "The total number of lines of Ruby code from the source code\n   directory, excluding external library and auto-generated files. This\n   query counts the lines of code, excluding whitespace or comments.",
+            "id" : "rb/summary/lines-of-user-code",
+            "kind" : "metric",
+            "name" : "Total lines of user written Ruby code in the database"
+          }
+        } ]
+      },
+      "extensions" : [ {
+        "name" : "codeql/ruby-queries",
+        "semanticVersion" : "0.8.3+ff65ffafb003e86bd4c18f2c031f5faaf6f1038b",
+        "locations" : [ {
+          "uri" : "file:///Users/hikaru-egashira/.codeql/packages/codeql/ruby-queries/0.8.3/",
+          "description" : {
+            "text" : "The QL pack root directory."
+          }
+        }, {
+          "uri" : "file:///Users/hikaru-egashira/.codeql/packages/codeql/ruby-queries/0.8.3/qlpack.yml",
+          "description" : {
+            "text" : "The QL pack definition file."
+          }
+        } ]
+      } ]
+    },
+    "invocations" : [ {
+      "toolExecutionNotifications" : [ {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "Gemfile",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 1
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/channels/application_cable/channel.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 2
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/channels/application_cable/connection.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 3
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/account_activations_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 4
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/application_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 5
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/microposts_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 6
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/password_resets_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 7
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/relationships_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 8
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/sessions_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 9
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/static_pages_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 10
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/users_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 11
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/account_activations_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 12
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/application_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 13
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/microposts_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 14
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/password_resets_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 15
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/relationships_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 16
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/sessions_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 17
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/static_pages_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 18
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/users_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 19
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/jobs/application_job.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 20
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/mailers/application_mailer.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 21
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/mailers/user_mailer.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 22
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/application_record.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 23
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/micropost.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 24
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/relationship.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 25
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/user.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 26
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/layouts/_footer.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 27
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/layouts/_header.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 28
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/layouts/application.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 29
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/layouts/mailer.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 30
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/layouts/mailer.text.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 31
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/microposts/_micropost.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 32
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/password_resets/edit.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 33
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/password_resets/new.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 34
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/relationships/create.turbo_stream.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 35
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/relationships/destroy.turbo_stream.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 36
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/sessions/new.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 37
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/shared/_error_messages.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 38
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/shared/_feed.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 39
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/shared/_micropost_form.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 40
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/shared/_stats.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 41
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/shared/_user_info.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 42
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/static_pages/about.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 43
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/static_pages/contact.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 44
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/static_pages/help.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 45
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/static_pages/home.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 46
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/user_mailer/account_activation.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 47
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/user_mailer/account_activation.text.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 48
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/user_mailer/password_reset.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 49
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/user_mailer/password_reset.text.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 50
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/_follow.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 51
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/_follow_form.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 52
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/_unfollow.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 53
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/_user.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 54
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/edit.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 55
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/index.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 56
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/new.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 57
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/show.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 58
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/views/users/show_follow.html.erb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 59
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/application.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 60
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/boot.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 61
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environment.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 62
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/development.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 63
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/production.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 64
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 65
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/importmap.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 66
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/assets.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 67
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/content_security_policy.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 68
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/filter_parameter_logging.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 69
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/inflections.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 70
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/permissions_policy.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 71
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/puma.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 72
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/routes.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 73
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011085000_create_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 74
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011090450_add_index_to_users_email.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 75
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011090918_add_password_digest_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 76
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221013025620_add_remember_digest_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 77
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221013075131_add_admin_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 78
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014011618_add_activation_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 79
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014065340_add_reset_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 80
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014075925_create_microposts.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 81
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014090340_create_active_storage_tables.active_storage.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 82
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221017075505_create_relationships.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 83
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/schema.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 84
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/seeds.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 0
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/application_system_test_case.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 85
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/channels/application_cable/connection_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 86
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/account_activations_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 87
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/microposts_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 88
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/relationships_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 89
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/sessions_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 90
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/static_pages_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 91
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/users_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 92
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/helpers/sessions_helper_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 93
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/following_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 94
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/microposts_interface_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 95
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/password_resets_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 96
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/site_layout_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 97
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_edit_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 98
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_index_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 99
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_login_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 100
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_profile_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 101
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_signup_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 102
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/mailers/previews/user_mailer_preview.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 103
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/mailers/user_mailer_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 104
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/micropost_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 105
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/relationship_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 106
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/user_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 107
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/test_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 108
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/diagnostics/successfully-extracted-files",
+          "index" : 1
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/schema.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 84
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/microposts_interface_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 95
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/mailers/user_mailer_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 104
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221013025620_add_remember_digest_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 77
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/content_security_policy.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 68
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011085000_create_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 74
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/permissions_policy.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 71
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_edit_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 98
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/users_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 92
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/channels/application_cable/channel.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 2
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/puma.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 72
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/application_system_test_case.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 85
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/password_resets_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 96
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/microposts_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 14
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/sessions_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 90
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/users_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 19
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/micropost.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 24
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/account_activations_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 87
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221017075505_create_relationships.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 83
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/importmap.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 66
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/application_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 5
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/account_activations_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 4
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/assets.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 67
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/development.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 63
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221013075131_add_admin_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 78
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/production.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 64
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/micropost_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 105
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_signup_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 102
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environments/test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 65
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011090918_add_password_digest_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 76
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/routes.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 73
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/mailers/application_mailer.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 21
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014090340_create_active_storage_tables.active_storage.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 82
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/password_resets_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 7
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/boot.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 61
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/channels/application_cable/connection.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 3
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/site_layout_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 97
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "bin/rails",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 109
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/users_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 11
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/jobs/application_job.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 20
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/relationships_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 16
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "bin/setup",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 110
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/mailers/previews/user_mailer_preview.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 103
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/environment.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 62
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/relationships_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 89
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/microposts_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 6
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/inflections.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 70
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014065340_add_reset_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 80
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/initializers/filter_parameter_logging.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 69
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/following_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 94
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/static_pages_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 10
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_profile_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 101
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/account_activations_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 12
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "bin/importmap",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 111
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/test_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 108
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/user_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 107
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/password_resets_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 15
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014011618_add_activation_to_users.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 79
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/relationship.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 25
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/seeds.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 0
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221014075925_create_microposts.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 81
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/user.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 26
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/static_pages_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 91
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/channels/application_cable/connection_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 86
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/sessions_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 9
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/controllers/relationships_controller.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 8
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/sessions_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 17
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_login_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 100
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "config/application.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 60
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "db/migrate/20221011090450_add_index_to_users_email.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 75
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/static_pages_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 18
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/helpers/sessions_helper_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 93
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/integration/users_index_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 99
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/relationship_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 106
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/helpers/application_helper.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 13
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/models/application_record.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 23
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/controllers/microposts_controller_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 88
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/mailers/user_mailer.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 22
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/assets/config/manifest.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 112
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/controllers/application.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 113
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/custom/image_upload.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 114
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/controllers/hello_controller.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 115
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/controllers/index.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 116
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/application.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 117
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "app/javascript/custom/menu.js",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 118
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "js/baseline/expected-extracted-files",
+          "index" : 3
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      } ],
+      "executionSuccessful" : true
+    } ],
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "db/seeds.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 0
+      }
+    }, {
+      "location" : {
+        "uri" : "Gemfile",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 1
+      }
+    }, {
+      "location" : {
+        "uri" : "app/channels/application_cable/channel.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 2
+      }
+    }, {
+      "location" : {
+        "uri" : "app/channels/application_cable/connection.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 3
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/account_activations_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 4
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/application_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 5
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/microposts_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 6
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/password_resets_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 7
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/relationships_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 8
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/sessions_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 9
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/static_pages_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 10
+      }
+    }, {
+      "location" : {
+        "uri" : "app/controllers/users_controller.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 11
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/account_activations_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 12
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/application_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 13
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/microposts_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 14
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/password_resets_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 15
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/relationships_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 16
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/sessions_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 17
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/static_pages_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 18
+      }
+    }, {
+      "location" : {
+        "uri" : "app/helpers/users_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 19
+      }
+    }, {
+      "location" : {
+        "uri" : "app/jobs/application_job.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 20
+      }
+    }, {
+      "location" : {
+        "uri" : "app/mailers/application_mailer.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 21
+      }
+    }, {
+      "location" : {
+        "uri" : "app/mailers/user_mailer.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 22
+      }
+    }, {
+      "location" : {
+        "uri" : "app/models/application_record.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 23
+      }
+    }, {
+      "location" : {
+        "uri" : "app/models/micropost.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 24
+      }
+    }, {
+      "location" : {
+        "uri" : "app/models/relationship.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 25
+      }
+    }, {
+      "location" : {
+        "uri" : "app/models/user.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 26
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/layouts/_footer.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 27
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/layouts/_header.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 28
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/layouts/application.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 29
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/layouts/mailer.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 30
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/layouts/mailer.text.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 31
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/microposts/_micropost.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 32
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/password_resets/edit.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 33
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/password_resets/new.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 34
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/relationships/create.turbo_stream.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 35
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/relationships/destroy.turbo_stream.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 36
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/sessions/new.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 37
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/shared/_error_messages.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 38
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/shared/_feed.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 39
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/shared/_micropost_form.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 40
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/shared/_stats.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 41
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/shared/_user_info.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 42
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/static_pages/about.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 43
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/static_pages/contact.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 44
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/static_pages/help.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 45
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/static_pages/home.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 46
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/user_mailer/account_activation.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 47
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/user_mailer/account_activation.text.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 48
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/user_mailer/password_reset.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 49
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/user_mailer/password_reset.text.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 50
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/_follow.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 51
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/_follow_form.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 52
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/_unfollow.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 53
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/_user.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 54
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/edit.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 55
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/index.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 56
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/new.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 57
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/show.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 58
+      }
+    }, {
+      "location" : {
+        "uri" : "app/views/users/show_follow.html.erb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 59
+      }
+    }, {
+      "location" : {
+        "uri" : "config/application.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 60
+      }
+    }, {
+      "location" : {
+        "uri" : "config/boot.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 61
+      }
+    }, {
+      "location" : {
+        "uri" : "config/environment.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 62
+      }
+    }, {
+      "location" : {
+        "uri" : "config/environments/development.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 63
+      }
+    }, {
+      "location" : {
+        "uri" : "config/environments/production.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 64
+      }
+    }, {
+      "location" : {
+        "uri" : "config/environments/test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 65
+      }
+    }, {
+      "location" : {
+        "uri" : "config/importmap.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 66
+      }
+    }, {
+      "location" : {
+        "uri" : "config/initializers/assets.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 67
+      }
+    }, {
+      "location" : {
+        "uri" : "config/initializers/content_security_policy.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 68
+      }
+    }, {
+      "location" : {
+        "uri" : "config/initializers/filter_parameter_logging.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 69
+      }
+    }, {
+      "location" : {
+        "uri" : "config/initializers/inflections.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 70
+      }
+    }, {
+      "location" : {
+        "uri" : "config/initializers/permissions_policy.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 71
+      }
+    }, {
+      "location" : {
+        "uri" : "config/puma.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 72
+      }
+    }, {
+      "location" : {
+        "uri" : "config/routes.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 73
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221011085000_create_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 74
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221011090450_add_index_to_users_email.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 75
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221011090918_add_password_digest_to_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 76
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221013025620_add_remember_digest_to_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 77
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221013075131_add_admin_to_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 78
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221014011618_add_activation_to_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 79
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221014065340_add_reset_to_users.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 80
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221014075925_create_microposts.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 81
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221014090340_create_active_storage_tables.active_storage.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 82
+      }
+    }, {
+      "location" : {
+        "uri" : "db/migrate/20221017075505_create_relationships.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 83
+      }
+    }, {
+      "location" : {
+        "uri" : "db/schema.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 84
+      }
+    }, {
+      "location" : {
+        "uri" : "test/application_system_test_case.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 85
+      }
+    }, {
+      "location" : {
+        "uri" : "test/channels/application_cable/connection_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 86
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/account_activations_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 87
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/microposts_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 88
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/relationships_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 89
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/sessions_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 90
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/static_pages_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 91
+      }
+    }, {
+      "location" : {
+        "uri" : "test/controllers/users_controller_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 92
+      }
+    }, {
+      "location" : {
+        "uri" : "test/helpers/sessions_helper_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 93
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/following_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 94
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/microposts_interface_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 95
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/password_resets_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 96
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/site_layout_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 97
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/users_edit_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 98
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/users_index_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 99
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/users_login_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 100
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/users_profile_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 101
+      }
+    }, {
+      "location" : {
+        "uri" : "test/integration/users_signup_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 102
+      }
+    }, {
+      "location" : {
+        "uri" : "test/mailers/previews/user_mailer_preview.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 103
+      }
+    }, {
+      "location" : {
+        "uri" : "test/mailers/user_mailer_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 104
+      }
+    }, {
+      "location" : {
+        "uri" : "test/models/micropost_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 105
+      }
+    }, {
+      "location" : {
+        "uri" : "test/models/relationship_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 106
+      }
+    }, {
+      "location" : {
+        "uri" : "test/models/user_test.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 107
+      }
+    }, {
+      "location" : {
+        "uri" : "test/test_helper.rb",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 108
+      }
+    }, {
+      "location" : {
+        "uri" : "bin/rails",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 109
+      }
+    }, {
+      "location" : {
+        "uri" : "bin/setup",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 110
+      }
+    }, {
+      "location" : {
+        "uri" : "bin/importmap",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 111
+      }
+    }, {
+      "location" : {
+        "uri" : "app/assets/config/manifest.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 112
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/controllers/application.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 113
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/custom/image_upload.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 114
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/controllers/hello_controller.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 115
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/controllers/index.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 116
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/application.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 117
+      }
+    }, {
+      "location" : {
+        "uri" : "app/javascript/custom/menu.js",
+        "uriBaseId" : "%SRCROOT%",
+        "index" : 118
+      }
+    } ],
+    "results" : [ {
+      "ruleId" : "rb/clear-text-storage-sensitive-data",
+      "ruleIndex" : 18,
+      "rule" : {
+        "id" : "rb/clear-text-storage-sensitive-data",
+        "index" : 18
+      },
+      "message" : {
+        "text" : "This stores sensitive data returned by [an assignment to password](1) as clear text."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "db/seeds.rb",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 17,
+            "startColumn" : 28,
+            "endColumn" : 36
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8329647f8cd1ec29:1",
+        "primaryLocationStartColumnFingerprint" : "23"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 12,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "\"password\""
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "endColumn" : 9
+                }
+              },
+              "message" : {
+                "text" : "password"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 17,
+                  "startColumn" : 28,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "password"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "db/seeds.rb",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 14,
+            "startColumn" : 12,
+            "endColumn" : 22
+          }
+        },
+        "message" : {
+          "text" : "an assignment to password"
+        }
+      } ]
+    }, {
+      "ruleId" : "rb/clear-text-storage-sensitive-data",
+      "ruleIndex" : 18,
+      "rule" : {
+        "id" : "rb/clear-text-storage-sensitive-data",
+        "index" : 18
+      },
+      "message" : {
+        "text" : "This stores sensitive data returned by [an assignment to password](1) as clear text."
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "db/seeds.rb",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 18,
+            "startColumn" : 28,
+            "endColumn" : 36
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "primaryLocationLineHash" : "8cb5b9afe528af8c:1",
+        "primaryLocationStartColumnFingerprint" : "23"
+      },
+      "codeFlows" : [ {
+        "threadFlows" : [ {
+          "locations" : [ {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "startColumn" : 12,
+                  "endColumn" : 22
+                }
+              },
+              "message" : {
+                "text" : "\"password\""
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 14,
+                  "endColumn" : 9
+                }
+              },
+              "message" : {
+                "text" : "password"
+              }
+            }
+          }, {
+            "location" : {
+              "physicalLocation" : {
+                "artifactLocation" : {
+                  "uri" : "db/seeds.rb",
+                  "uriBaseId" : "%SRCROOT%",
+                  "index" : 0
+                },
+                "region" : {
+                  "startLine" : 18,
+                  "startColumn" : 28,
+                  "endColumn" : 36
+                }
+              },
+              "message" : {
+                "text" : "password"
+              }
+            }
+          } ]
+        } ]
+      } ],
+      "relatedLocations" : [ {
+        "id" : 1,
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "db/seeds.rb",
+            "uriBaseId" : "%SRCROOT%",
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 14,
+            "startColumn" : 12,
+            "endColumn" : 22
+          }
+        },
+        "message" : {
+          "text" : "an assignment to password"
+        }
+      } ]
+    } ],
+    "columnKind" : "utf16CodeUnits",
+    "properties" : {
+      "metricResults" : [ {
+        "rule" : {
+          "id" : "rb/summary/number-of-files-extracted-with-errors",
+          "index" : 34
+        },
+        "ruleId" : "rb/summary/number-of-files-extracted-with-errors",
+        "ruleIndex" : 34,
+        "value" : 0
+      }, {
+        "rule" : {
+          "id" : "rb/summary/lines-of-code",
+          "index" : 35
+        },
+        "ruleId" : "rb/summary/lines-of-code",
+        "ruleIndex" : 35,
+        "value" : 1793,
+        "baseline" : 1578
+      }, {
+        "rule" : {
+          "id" : "rb/summary/number-of-successfully-extracted-files",
+          "index" : 36
+        },
+        "ruleId" : "rb/summary/number-of-successfully-extracted-files",
+        "ruleIndex" : 36,
+        "value" : 109
+      }, {
+        "rule" : {
+          "id" : "rb/summary/lines-of-user-code",
+          "index" : 37
+        },
+        "ruleId" : "rb/summary/lines-of-user-code",
+        "ruleIndex" : 37,
+        "value" : 1793
+      } ],
+      "semmle.formatSpecifier" : "sarifv2.1.0"
+    }
+  } ]
+}

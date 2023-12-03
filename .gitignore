@@ -18,3 +18,4 @@ test-*.ql
 */test-output.txt
 
 .DS_Store
+*-db

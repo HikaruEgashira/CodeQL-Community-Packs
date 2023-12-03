@@ -2,7 +2,7 @@
  * @name Audit: Usage of Dangerous Functions
  * @description Dangerous Functions
  * @kind problem
- * @id githubsecuritylab/audit/dangerous-functions
+ * @id hikae/audit/dangerous-functions
  * @problem.severity warning
  * @security-severity 2.5
  * @sub-severity low

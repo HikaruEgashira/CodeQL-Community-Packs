@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 9.8
  * @precision high
- * @id githubsecuritylab/command-injection
+ * @id hikae/command-injection
  * @tags security
  *       external/cwe/cwe-078
  */

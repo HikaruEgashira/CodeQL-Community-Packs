@@ -3,7 +3,7 @@
  * @description Password stored insecurely directly in database without hashing with a secure password hash
  * @kind problem
  * @problem.severity error
- * @id githubsecuritylab/insecurely-stored-pw
+ * @id hikae/insecurely-stored-pw
  * @precision high
  * @tags password
  *       python

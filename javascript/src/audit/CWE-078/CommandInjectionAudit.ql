@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @security-severity 3.0
- * @id githubsecuritylab/audit/command-injection
+ * @id hikae/audit/command-injection
  * @tags security
  *       external/cwe/cwe-078
  *       audit

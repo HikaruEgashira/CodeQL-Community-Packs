@@ -2,7 +2,7 @@
  * @name Backwards Partial Dataflow
  * @description Backwards Partial Dataflow
  * @kind table
- * @id githubsecuritylab/backwards-partial-dataflow
+ * @id hikae/backwards-partial-dataflow
  * @tags template
  */
 

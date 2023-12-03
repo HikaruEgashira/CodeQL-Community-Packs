@@ -4,7 +4,7 @@
  * @kind path-problem
  * @precision low
  * @problem.severity error
- * @id githubsecuritylab/dataflow-query
+ * @id hikae/dataflow-query
  * @tags template
  */
 

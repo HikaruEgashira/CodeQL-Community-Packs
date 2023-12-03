@@ -5,7 +5,7 @@
  * @problem.severity warning
  * @security-severity 9.3
  * @precision high
- * @id githubsecuritylab/actions/unpinned-tag
+ * @id hikae/actions/unpinned-tag
  * @tags actions
  *       security
  *       experimental

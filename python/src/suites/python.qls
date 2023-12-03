@@ -1,7 +1,7 @@
 - description: "GitHub's Community Packs Python Extended Suite"
 
 - queries: '.'
-  from: githubsecuritylab/codeql-python-queries
+  from: hikae/codeql-python-queries
 
 - include:
     kind:

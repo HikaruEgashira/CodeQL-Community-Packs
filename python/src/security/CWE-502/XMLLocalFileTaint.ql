@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 6.0
  * @precision high
- * @id githubsecuritylab/xxe-local-file-taint
+ * @id hikae/xxe-local-file-taint
  * @tags security
  *       local
  *       external/cwe/cwe-611

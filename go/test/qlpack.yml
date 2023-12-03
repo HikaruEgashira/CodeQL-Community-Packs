@@ -3,7 +3,7 @@ groups: [go, test]
 dependencies:
     codeql/go-all: '*'
     codeql/go-queries: '*'
-    githubsecuritylab/codeql-go-queries: '*'
-    githubsecuritylab/codeql-go-libs: '*'
+    hikae/codeql-go-queries: '*'
+    hikae/codeql-go-libs: '*'
 extractor: go
 tests: .

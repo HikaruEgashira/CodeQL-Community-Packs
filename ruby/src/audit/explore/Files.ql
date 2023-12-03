@@ -2,7 +2,7 @@
  * @name Files
  * @description List of all files in the repository
  * @kind table
- * @id githubsecuritylab/files
+ * @id hikae/files
  * @tags audit
  */
 

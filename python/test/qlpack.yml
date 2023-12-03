@@ -3,7 +3,7 @@ groups: [python, test]
 dependencies:
     codeql/python-all: '*'
     codeql/python-queries: '*'
-    githubsecuritylab/codeql-python-queries: '*'
-    githubsecuritylab/codeql-python-libs: '*'
+    hikae/codeql-python-queries: '*'
+    hikae/codeql-python-libs: '*'
 extractor: python
 tests: .

@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @security-severity 3.0
- * @id githubsecuritylab/audit/unsafe-deserialization
+ * @id hikae/audit/unsafe-deserialization
  * @tags security
  *       external/cwe/cwe-503
  *       audit

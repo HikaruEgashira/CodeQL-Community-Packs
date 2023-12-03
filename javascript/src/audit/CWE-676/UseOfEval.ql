@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity recommendation
  * @security-severity 2.0
- * @id githubsecuritylab/audit/using-eval
+ * @id hikae/audit/using-eval
  * @tags maintainability
  *       external/cwe/cwe-676
  *       audit

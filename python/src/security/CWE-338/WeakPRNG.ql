@@ -2,7 +2,7 @@
  * @name Use of Cryptographically Weak Pseudo-Random Number Generator
  * @description Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG).
  * @kind problem
- * @id githubsecuritylab/weak-cryptographic-prng
+ * @id hikae/weak-cryptographic-prng
  * @problem.severity warning
  * @security-severity 6.0
  * @sub-severity medium

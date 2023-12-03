@@ -7,7 +7,7 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id githubsecuritylab/audit/code-injection
+ * @id hikae/audit/code-injection
  * @tags security
  *       external/cwe/cwe-094
  *       external/cwe/cwe-095

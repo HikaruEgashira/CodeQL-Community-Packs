@@ -2,7 +2,7 @@
  * @name Forward Partial Dataflow
  * @description Forward Partial Dataflow
  * @kind table
- * @id githubsecuritylab/forward-partial-dataflow
+ * @id hikae/forward-partial-dataflow
  * @tags template
  */
 

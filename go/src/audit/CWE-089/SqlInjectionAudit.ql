@@ -5,7 +5,7 @@
  * @security-severity 2.5
  * @sub-severity low
  * @precision very-low
- * @id githubsecuritylab/audit/sql-injection
+ * @id hikae/audit/sql-injection
  * @tags security
  *       external/cwe/cwe-089
  *       audit

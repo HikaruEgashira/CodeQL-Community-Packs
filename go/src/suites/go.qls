@@ -1,7 +1,7 @@
 - description: "GitHub's Community Packs Extended GoLang Suite"
 
 - queries: '.'
-  from: githubsecuritylab/codeql-go-queries
+  from: hikae/codeql-go-queries
 
 - include:
     kind:

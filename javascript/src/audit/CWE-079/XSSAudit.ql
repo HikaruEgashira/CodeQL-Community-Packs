@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @security-severity 3.0
- * @id githubsecuritylab/audit/reflected-xss
+ * @id hikae/audit/reflected-xss
  * @tags security
  *       external/cwe/cwe-079
  *       external/cwe/cwe-116

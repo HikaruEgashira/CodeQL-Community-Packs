@@ -6,7 +6,7 @@
  * @problem.severity error
  * @security-severity 6.1
  * @precision high
- * @id githubsecuritylab/reflected-xss
+ * @id hikae/reflected-xss
  * @tags security
  *       external/cwe/cwe-079
  *       external/cwe/cwe-116

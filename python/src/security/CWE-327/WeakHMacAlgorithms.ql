@@ -2,7 +2,7 @@
  * @name Use of Cryptographically Weak HMAC Algorithm
  * @description Use of Cryptographically Weak HMAC Algorithm
  * @kind problem
- * @id githubsecuritylab/weak-cryptographic-hmac-algorithm
+ * @id hikae/weak-cryptographic-hmac-algorithm
  * @problem.severity warning
  * @security-severity 5.0
  * @sub-severity medium

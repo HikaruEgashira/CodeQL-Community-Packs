@@ -7,7 +7,7 @@
  * @security-severity 2.0
  * @precision high
  * @sub-severity high
- * @id githubsecuritylab/mass-assignment-local
+ * @id hikae/mass-assignment-local
  * @tags security
  *       local
  *       external/cwe/cwe-2915

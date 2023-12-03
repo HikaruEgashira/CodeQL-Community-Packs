@@ -1,8 +1,8 @@
 library: false
-name: githubsecuritylab/codeql-python-queries
+name: hikae/codeql-python-queries
 version: 0.0.3
 suites: suites
 defaultSuiteFile: suites/python.qls
 dependencies:
   codeql/python-all: '*'
-  githubsecuritylab/codeql-python-libs: 0.0.1
+  hikae/codeql-python-libs: 0.0.1

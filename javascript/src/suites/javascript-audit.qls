@@ -1,6 +1,6 @@
 - description: "GitHub's Community Packs JavaScript/TypeScript audit Suite"
 
-- qlpack: githubsecuritylab/codeql-javascript-queries
+- qlpack: hikae/codeql-javascript-queries
 
 - include:
     kind:

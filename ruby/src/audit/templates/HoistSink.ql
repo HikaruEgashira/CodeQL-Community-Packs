@@ -2,7 +2,7 @@
  * @name Sink Hoisting to method parameter
  * @description Hoist a sink using partial dataflow
  * @kind table
- * @id githubsecuritylab/sink-hoister
+ * @id hikae/sink-hoister
  * @tags template
  */
 

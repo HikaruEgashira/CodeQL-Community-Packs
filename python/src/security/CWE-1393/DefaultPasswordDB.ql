@@ -3,7 +3,7 @@
  * @description Default password set in security sensitive database column
  * @kind problem
  * @problem.severity error
- * @id githubsecuritylab/default-password-db
+ * @id hikae/default-password-db
  * @precision high
  * @tags default-password
  *       python

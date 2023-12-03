@@ -1,7 +1,7 @@
 - description: "GitHub's Community Packs JavaScript/TypeScript extended Suite"
 
 - queries: '.'
-  from: githubsecuritylab/codeql-javascript-queries
+  from: hikae/codeql-javascript-queries
 
 - include:
     kind:

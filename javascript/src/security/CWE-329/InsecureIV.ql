@@ -5,7 +5,7 @@
  * @problem.severity error
  * @security-severity 4.3
  * @precision high
- * @id githubsecuritylab/crypt/insecure-iv
+ * @id hikae/crypt/insecure-iv
  * @tags crypt
  *       security
  *       experimental

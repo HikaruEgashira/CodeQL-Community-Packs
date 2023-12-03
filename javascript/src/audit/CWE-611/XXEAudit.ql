@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @security-severity 3.0
- * @id githubsecuritylab/audit/xxe
+ * @id hikae/audit/xxe
  * @tags security
  *       external/cwe/cwe-611
  *       audit

@@ -1,7 +1,7 @@
 - description: "GitHub's Community Packs Ruby Extended Suite"
 
 - queries: '.'
-  from: githubsecuritylab/codeql-ruby-queries
+  from: hikae/codeql-ruby-queries
 
 - include:
     kind:

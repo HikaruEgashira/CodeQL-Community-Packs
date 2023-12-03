@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity warning
  * @security-severity 3.0
- * @id githubsecuritylab/audit/code-injection
+ * @id hikae/audit/code-injection
  * @tags security
  *       external/cwe/cwe-094
  *       external/cwe/cwe-095

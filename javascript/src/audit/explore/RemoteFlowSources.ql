@@ -2,7 +2,7 @@
  * @name Attack Surface
  * @description Application attack surface
  * @kind table
- * @id githubsecuritylab/attack-surface
+ * @id hikae/attack-surface
  * @tags audit
  */
 

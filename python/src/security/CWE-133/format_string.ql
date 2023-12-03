@@ -3,7 +3,7 @@
  * @description User-controlled format string can result in Denial-of-Service or information leaks
  * @kind path-problem
  * @problem.severity error
- * @id githubsecuritylab/format-string
+ * @id hikae/format-string
  * @precision low
  * @tags format-string
  *       python

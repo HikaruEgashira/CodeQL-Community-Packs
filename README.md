@@ -46,11 +46,3 @@ packs:
 ```bash
 codeql database analyze db/ --download hikae/codeql-python-queries --format=sarif-latest --output=results.sarif
 ```
-
-## License
-
-This project is licensed under the terms of the MIT open source license. Please refer to [MIT](./LICENSE) for the full terms.
-
-## Support
-
-Please [create GitHub issues](https://github.com/advanced-security/brew-dependency-submission-action) for any feature requests, bugs, or documentation problems.

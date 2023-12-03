@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "github.vscode-codeql",
+        "ms-sarifvscode.sarif-viewer"
+    ]
+}

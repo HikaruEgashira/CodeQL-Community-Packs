@@ -3581,9 +3581,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "db/migrate/20221011085000_create_users.rb",
+              "uri" : "config/initializers/permissions_policy.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 74
+              "index" : 71
             }
           }
         } ],
@@ -3604,9 +3604,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "config/initializers/permissions_policy.rb",
+              "uri" : "db/migrate/20221011085000_create_users.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 71
+              "index" : 74
             }
           }
         } ],
@@ -3995,9 +3995,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "config/environments/development.rb",
+              "uri" : "db/migrate/20221013075131_add_admin_to_users.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 63
+              "index" : 78
             }
           }
         } ],
@@ -4018,9 +4018,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "db/migrate/20221013075131_add_admin_to_users.rb",
+              "uri" : "config/environments/development.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 78
+              "index" : 63
             }
           }
         } ],
@@ -4133,9 +4133,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "db/migrate/20221011090918_add_password_digest_to_users.rb",
+              "uri" : "config/routes.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 76
+              "index" : 73
             }
           }
         } ],
@@ -4156,9 +4156,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "config/routes.rb",
+              "uri" : "db/migrate/20221011090918_add_password_digest_to_users.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 73
+              "index" : 76
             }
           }
         } ],
@@ -4386,9 +4386,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "app/helpers/relationships_helper.rb",
+              "uri" : "bin/setup",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 16
+              "index" : 110
             }
           }
         } ],
@@ -4409,9 +4409,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "bin/setup",
+              "uri" : "app/helpers/relationships_helper.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 110
+              "index" : 16
             }
           }
         } ],
@@ -4524,9 +4524,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "config/initializers/inflections.rb",
+              "uri" : "db/migrate/20221014065340_add_reset_to_users.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 70
+              "index" : 80
             }
           }
         } ],
@@ -4547,9 +4547,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "db/migrate/20221014065340_add_reset_to_users.rb",
+              "uri" : "config/initializers/inflections.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 80
+              "index" : 70
             }
           }
         } ],
@@ -4639,9 +4639,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "test/integration/users_profile_test.rb",
+              "uri" : "app/helpers/account_activations_helper.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 101
+              "index" : 12
             }
           }
         } ],
@@ -4662,9 +4662,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "app/helpers/account_activations_helper.rb",
+              "uri" : "test/integration/users_profile_test.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 12
+              "index" : 101
             }
           }
         } ],
@@ -4754,9 +4754,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "app/helpers/password_resets_helper.rb",
+              "uri" : "db/migrate/20221014011618_add_activation_to_users.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 15
+              "index" : 79
             }
           }
         } ],
@@ -4777,9 +4777,9 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "db/migrate/20221014011618_add_activation_to_users.rb",
+              "uri" : "app/helpers/password_resets_helper.rb",
               "uriBaseId" : "%SRCROOT%",
-              "index" : 79
+              "index" : 15
             }
           }
         } ],
@@ -5145,29 +5145,6 @@
         "locations" : [ {
           "physicalLocation" : {
             "artifactLocation" : {
-              "uri" : "test/models/relationship_test.rb",
-              "uriBaseId" : "%SRCROOT%",
-              "index" : 106
-            }
-          }
-        } ],
-        "message" : {
-          "text" : ""
-        },
-        "level" : "none",
-        "descriptor" : {
-          "id" : "rb/baseline/expected-extracted-files",
-          "index" : 2
-        },
-        "properties" : {
-          "formattedMessage" : {
-            "text" : ""
-          }
-        }
-      }, {
-        "locations" : [ {
-          "physicalLocation" : {
-            "artifactLocation" : {
               "uri" : "app/helpers/application_helper.rb",
               "uriBaseId" : "%SRCROOT%",
               "index" : 13
@@ -5194,6 +5171,29 @@
               "uri" : "app/models/application_record.rb",
               "uriBaseId" : "%SRCROOT%",
               "index" : 23
+            }
+          }
+        } ],
+        "message" : {
+          "text" : ""
+        },
+        "level" : "none",
+        "descriptor" : {
+          "id" : "rb/baseline/expected-extracted-files",
+          "index" : 2
+        },
+        "properties" : {
+          "formattedMessage" : {
+            "text" : ""
+          }
+        }
+      }, {
+        "locations" : [ {
+          "physicalLocation" : {
+            "artifactLocation" : {
+              "uri" : "test/models/relationship_test.rb",
+              "uriBaseId" : "%SRCROOT%",
+              "index" : 106
             }
           }
         } ],

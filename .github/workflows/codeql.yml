@@ -27,7 +27,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        source-root: test/rails-tutorial
         # packs: hikae/codeql-${{ matrix.language }}-queries
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

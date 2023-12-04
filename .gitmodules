@@ -1,3 +1,6 @@
 [submodule "ql"]
 	path = ql
 	url = git@github.com:github/codeql.git
+[submodule "test/bear-publishing"]
+	path = test/bear-publishing
+	url = git@github.com:Bearer/bear-publishing.git
